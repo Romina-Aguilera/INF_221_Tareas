@@ -47,7 +47,7 @@ int main() {
         {9, 10},
         {11, 12}
     };
-    
+
     vector<vector<int>> C =MultiplicarMatrices(A, B);
     cout << "Matriz resultante C es:" << endl;
     imprimirMatriz(C);

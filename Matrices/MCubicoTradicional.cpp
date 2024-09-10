@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include "chrono"
 
 using namespace std;
 
@@ -103,9 +104,16 @@ int main() {
     B = leer_y_llenar_M2 ();
     imprimirMatriz(B);
 
+    auto inicio = chrono::high_resolution_clock::now();
     vector<vector<int>> C =MultiplicarMatrices(A, B);
+    auto final = chrono::high_resolution_clock::now();
+
+    auto total = chrono::duration_cast<chrono::microseconds>(final - inicio).count();
+
     cout << "Matriz resultante C es:" << endl;
     imprimirMatriz(C);
+
+    cout << "microsegundos" <<total << endl;
 
     return 0;
 }

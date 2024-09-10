@@ -10,14 +10,14 @@ def escribir_matrices_en_archivo(matriz, archivo, tamaño):
             f.write(' '.join(map(str, fila)) + '\n')
 
 # Configuración
-tamaño_matriz1 = 4
+tamaño_matriz1 = 32
 valor_min1 = 1
-valor_max1 = 4
+valor_max1 = 32
 nombre_archivo1 = "../Tarea_1/Matrices/output/Matriz1.txt"
 
-tamaño_matriz2 = 4
+tamaño_matriz2 = 32
 valor_min2 = 1
-valor_max2 = 4
+valor_max2 = 32
 nombre_archivo2 = "../Tarea_1/Matrices/output/Matriz2.txt"
 
 matriz1 = generar_matriz(tamaño_matriz1, valor_min1, valor_max1)

@@ -3,10 +3,11 @@
 #include "vector"
 #include "string"
 #include "fstream"
+#include "chrono"
 
 using namespace std;
 
-vector<int> pobladorVector(vector<int> elementos){
+vector<int> LlenarVector(vector<int> elementos){
     ifstream MyFile("Desordenados.txt");
     int n;
     while (MyFile >> n){
@@ -25,12 +26,18 @@ void Imprimir_vector (vector<int> vect, int tam_vector){
 
 int main(){
     vector<int> vect;
-    vect = pobladorVector(vect);
+    vect = LlenarVector(vect);
 
     int tam_vect = vect.size();
+    auto inicio = chrono::high_resolution_clock::now();
     sort(vect.begin(), vect.end());
+    auto final = chrono::high_resolution_clock::now();
+
+    auto total = chrono::duration_cast<chrono::microseconds>(final - inicio).count();
 
     Imprimir_vector(vect, tam_vect);
+
+    cout << "microsegundos" <<total << endl;
 
     return 0;
 }

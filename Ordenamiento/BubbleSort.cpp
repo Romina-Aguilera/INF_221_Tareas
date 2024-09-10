@@ -5,7 +5,7 @@
 #include "chrono"
 using namespace std;
 
-vector<int> pobladorVector(vector<int> elementos){
+vector<int> Llenar_Vector(vector<int> elementos){
     ifstream MyFile("Desordenados.txt");
     int n;
     while (MyFile >> n){
@@ -35,12 +35,19 @@ void Imprimir_vector (vector<int> vect, int tam_vector){
         cout << vect[i] << endl;
     }
 }
+
 int main() {
     vector<int> vect;
-    vect = pobladorVector(vect);
+    vect = Llenar_Vector(vect);
     int tam_vect = vect.size();
 
+    auto inicio = chrono::high_resolution_clock::now();
     BubbleSort(vect, tam_vect);
+    auto final = chrono::high_resolution_clock::now();
+
+    auto total = chrono::duration_cast<chrono::microseconds>(final - inicio).count();
+
+    cout << "microsegundos" <<total << endl;
 
     Imprimir_vector(vect, tam_vect);
 

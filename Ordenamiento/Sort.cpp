@@ -7,7 +7,7 @@
 using namespace std;
 
 vector<int> pobladorVector(vector<int> elementos){
-    ifstream MyFile("Desordenado_1.txt");
+    ifstream MyFile("Desordenados.txt");
     int n;
     while (MyFile >> n){
         elementos.push_back(n);

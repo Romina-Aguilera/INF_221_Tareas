@@ -1,5 +1,20 @@
-#include <iostream>
-#include <vector>
+#include "iostream"
+#include "string"
+#include "vector"
+#include "fstream"
+#include "chrono"
+using namespace std;
+
+vector<int> pobladorVector(vector<int> elementos){
+    ifstream MyFile("Desordenado_1.txt");
+    int n;
+    while (MyFile >> n){
+        elementos.push_back(n);
+    }
+    MyFile.close();
+    return elementos;
+
+}
 
 int particion (std::vector<int>& vect, int menor, int mayor){
     int pivote = vect[mayor];
@@ -23,11 +38,19 @@ void QuickSort(std::vector<int>& vect, int menor, int mayor){
 
 }
 
+void Imprimir_vector (vector<int> vect, int tam_vector){
+    for (int i = 0; i < tam_vector; i++){
+        cout << vect[i] << endl;
+    }
+}
+
 int main() {
-    std::vector<int> vect = {10, 7, 8, 9, 1, 5};
+    std::vector<int> vect;
+    vect = pobladorVector(vect);
     int tam_vect = vect.size();
 
     QuickSort(vect, 0, tam_vect - 1);
+    Imprimir_vector(vect, tam_vect);
 
     return 0;
 }

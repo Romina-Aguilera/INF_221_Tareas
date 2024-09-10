@@ -1,6 +1,27 @@
-#include <iostream>
-#include <vector>
-#include <climits>
+#include "iostream"
+#include "string"
+#include "vector"
+#include "climits"
+#include "fstream"
+#include "chrono"
+using namespace std;
+
+vector<int> pobladorVector(vector<int> elementos){
+    ifstream MyFile("Desordenado_1.txt");
+    int n;
+    while (MyFile >> n){
+        elementos.push_back(n);
+    }
+    MyFile.close();
+    return elementos;
+
+}
+
+void Imprimir_vector (vector<int> vect, int tam_vector){
+    for (int i = 0; i < tam_vector; i++){
+        cout << vect[i] << endl;
+    }
+}
 
 void Merge(std::vector<int>& vect, int izq, int mitad, int der){
     int n_1 = mitad - izq +1;
@@ -46,10 +67,12 @@ void MergeSort(std::vector<int>& vect, int izq, int der){
 }
 
 int main(){
-    std::vector<int> vect = {12, 11, 13, 5, 6, 7};
+    std::vector<int> vect;
+    vect = pobladorVector(vect);
     int tam_vect = vect.size();
 
     MergeSort(vect, 0, tam_vect - 1);
+    Imprimir_vector(vect, tam_vect);
 
 
     return 0;

@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -26,6 +28,60 @@ vector<vector<int>> MultiplicarMatrices(const vector<vector<int>>& Matriz_A, con
     return Matriz_Resultante;
 }
 
+vector<vector<int>> leer_y_llenar_M1(){
+    ifstream file("Matriz1.txt");
+
+    if (!file.is_open()) {
+        throw runtime_error("No se pudo abrir el archivo.");
+    }
+    string line;
+    getline(file, line);
+    int n = stoi(line);
+
+    vector<vector<int>> matriz(n, vector<int>(n));
+
+    int i = 0;
+    while (getline(file, line)) {
+        istringstream iss(line);
+        int num;
+        int j = 0;
+        while (iss >> num) {
+            matriz[i][j++] = num;
+        }
+        i++;
+    }
+    
+    file.close();
+    return matriz;
+}
+
+vector<vector<int>> leer_y_llenar_M2(){
+    ifstream file("Matriz2.txt");
+
+    if (!file.is_open()) {
+        throw runtime_error("No se pudo abrir el archivo.");
+    }
+    string line;
+    getline(file, line);
+    int n = stoi(line);
+
+    vector<vector<int>> matriz(n, vector<int>(n));
+
+    int i = 0;
+    while (getline(file, line)) {
+        istringstream iss(line);
+        int num;
+        int j = 0;
+        while (iss >> num) {
+            matriz[i][j++] = num;
+        }
+        i++;
+    }
+    
+    file.close();
+    return matriz;
+}
+
 void imprimirMatriz(const vector<vector<int>>& matriz) {
     for (const auto& fila : matriz) {
         for (int elem : fila) {
@@ -37,16 +93,15 @@ void imprimirMatriz(const vector<vector<int>>& matriz) {
 
 int main() {
 
-    vector<vector<int>> A = {
-        {1, 2, 3},
-        {4, 5, 6}
-    };
+    vector<vector<int>> A;
+    A = leer_y_llenar_M1();
+    imprimirMatriz(A);
 
-    vector<vector<int>> B = {
-        {7, 8},
-        {9, 10},
-        {11, 12}
-    };
+    cout << "a" << endl;
+
+    vector<vector<int>> B;
+    B = leer_y_llenar_M2 ();
+    imprimirMatriz(B);
 
     vector<vector<int>> C =MultiplicarMatrices(A, B);
     cout << "Matriz resultante C es:" << endl;

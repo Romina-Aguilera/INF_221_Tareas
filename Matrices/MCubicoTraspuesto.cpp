@@ -115,6 +115,8 @@ En caso que coincidan se realiza la multiplicación de las matrices
 -Se genera una matriz resultante, la cual guardará los resultados obtenidos de A*B
 
 -Para obtener estos elementos, multiplicaremos los elementos de la fila I de la matriz A por los elementos de la columna j de la matriz B y sumaremos los elementos
+
+Complejidad: O(n^3)
 */
 vector<vector<int>> MultiplicarMatrices(const vector<vector<int>>& Matriz_A, const vector<vector<int>>& Matriz_B){
     int filas_MA = Matriz_A.size();

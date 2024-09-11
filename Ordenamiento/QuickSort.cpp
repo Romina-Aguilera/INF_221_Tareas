@@ -77,6 +77,11 @@ Funcionamiento:
 - Verifica si el segmento del vector tiene al menos dos elementos.
 - Llama a la función particion para dividir el segmento del vector en dos partes en base al pivote.
 - Llama recursivamente a QuickSort para ordenar las dos partes del segmento del vector (izquierda y derecha del pivote).
+
+Complejidad:
+- Peor caso: O(n^2)
+- Promedio: O(n log n)
+- Mejor Caso: O(n log n)
 */
 void QuickSort(std::vector<int>& vect, int menor, int mayor){
     if(menor < mayor){

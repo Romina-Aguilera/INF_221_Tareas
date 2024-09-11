@@ -1,5 +1,8 @@
 import random
 
+
+#Archivo que contiene el código para generar un txt, cada uno con una sola matriz
+
 def generar_matriz(tamaño, valor_min, valor_max):
     return [[random.randint(valor_min, valor_max) for _ in range(tamaño)] for _ in range(tamaño)]
 
@@ -9,7 +12,9 @@ def escribir_matrices_en_archivo(matriz, archivo, tamaño):
         for fila in matriz:
             f.write(' '.join(map(str, fila)) + '\n')
 
-# Configuración
+
+# En caso de querer modificar los valores de la matriz 1, cambiar los
+# que están a continuación
 tamaño_matriz1 = 512
 valor_min1 = 1
 valor_max1 = 512

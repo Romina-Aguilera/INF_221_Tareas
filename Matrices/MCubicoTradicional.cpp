@@ -6,6 +6,23 @@
 
 using namespace std;
 
+/*
+MultiplicarMatrices
+
+Parametros:
+- vector<vector<int>> matriz_A = Matriz 1
+- vector<vector<int>> matriz_B = Matriz 2
+
+Retorno:
+- vector<vector<int>> matriz_Resultante = Matriz obtenida de la multiplicación de la matriz A con la matriz B
+
+Funcionamiento:
+- Se compara el tamaño de las matrices, si las columas de la matriz A son distintas a las filas de la columna B, no se puede realizar la multiplicación
+En caso que coincidan se realiza la multiplicación de las matrices
+-Se genera una matriz resultante, la cual guardará los resultados obtenidos de A*B
+
+-Para obtener estos elementos, multiplicaremos los elementos de la fila I de la matriz A por los elementos de la columna j de la matriz B y sumaremos los elementos
+*/
 vector<vector<int>> MultiplicarMatrices(const vector<vector<int>>& Matriz_A, const vector<vector<int>>& Matriz_B){
     int filas_MA = Matriz_A.size();
     int columnas_MA = Matriz_A[0].size();
@@ -29,6 +46,19 @@ vector<vector<int>> MultiplicarMatrices(const vector<vector<int>>& Matriz_A, con
     return Matriz_Resultante;
 }
 
+
+/*
+leer_y_llenar_M1 y leer_y_llenar_M2
+
+Parametros:
+No tiene
+
+Retorno:
+- vector<vector<int>> matriz = Matriz extraida del archivo txt
+
+Funcionamiento:
+- La función se encarga de leer el archivo txt y almacenar los elementos obtenidos en la matriz
+*/
 vector<vector<int>> leer_y_llenar_M1(){
     ifstream file("Matriz1.txt");
 
@@ -83,6 +113,18 @@ vector<vector<int>> leer_y_llenar_M2(){
     return matriz;
 }
 
+/*
+ImprimirMatriz
+
+Parametros:
+vector<vector<int>> matriz = Matriz que desea visualizarse impresa
+
+Retorno:
+No retorna nada
+
+Funcionamiento:
+- La función se encarga de leer la matriz e imprimir cada elemento por consola
+*/
 void imprimirMatriz(const vector<vector<int>>& matriz) {
     for (const auto& fila : matriz) {
         for (int elem : fila) {

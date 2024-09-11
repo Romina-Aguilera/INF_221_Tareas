@@ -4,7 +4,7 @@ import numpy as np
 def SemiOrdenados():
     elementos = 1000
     valor_minimo = 1
-    valor_maximo = 1000
+    valor_maximo = 100000
 
     ordenados = sorted([random.randint(valor_minimo, valor_maximo) for _ in range(elementos // 2)])
     Desordenados = random.sample(range(valor_minimo, valor_maximo + 1), elementos // 2)
@@ -15,13 +15,13 @@ def SemiOrdenados():
             arch.write(str(num) + "\n")
 
 def Ordenados():
-    elementos = 1000
+    elementos = 10000
     with open("../Tarea_1/Ordenamiento/output/Ordenados.txt", "w") as arch:
-        for num in range(100):
+        for num in range(10000):
             arch.write(str(num)+ '\n')
 
 def Desordenados():
-    elementos = 1000
+    elementos = 10000
     with open("../Tarea_1/Ordenamiento/output/Desordenados.txt", "w") as arch:
         for _ in range(elementos):
             num = random.randint(1, elementos)

@@ -6,7 +6,7 @@
 using namespace std;
 
 vector<int> Llenar_Vector(vector<int> elementos){
-    ifstream MyFile("Desordenados.txt");
+    ifstream MyFile("Ordenados.txt");
     int n;
     while (MyFile >> n){
         elementos.push_back(n);
@@ -17,6 +17,9 @@ vector<int> Llenar_Vector(vector<int> elementos){
 }
 
 int particion (std::vector<int>& vect, int menor, int mayor){
+    int centro = menor + (mayor - menor) / 2;
+    swap(vect[centro], vect[mayor]);
+
     int pivote = vect[mayor];
     int i = menor -1;
     for (int j = menor; j < mayor; j++){
@@ -48,13 +51,15 @@ int main() {
     std::vector<int> vect;
     vect = Llenar_Vector(vect);
     int tam_vect = vect.size();
+    //Imprimir_vector(vect, tam_vect);
 
     auto inicio = chrono::high_resolution_clock::now();
     QuickSort(vect, 0, tam_vect - 1);
     auto final = chrono::high_resolution_clock::now();
 
     auto total = chrono::duration_cast<chrono::microseconds>(final - inicio).count();
-    Imprimir_vector(vect, tam_vect);
+    //Imprimir_vector(vect, tam_vect);
+    cout << "Se ha resuelto quickSort con exito!" <<endl;
     cout << "microsegundos" <<total << endl;
 
     return 0;

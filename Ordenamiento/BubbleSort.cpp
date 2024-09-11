@@ -47,9 +47,10 @@ int main() {
 
     auto total = chrono::duration_cast<chrono::microseconds>(final - inicio).count();
 
+    //Imprimir_vector(vect, tam_vect);
+    cout << "Se ha resuelto Bubble sort con exito!" <<endl;
     cout << "microsegundos" <<total << endl;
 
-    Imprimir_vector(vect, tam_vect);
 
     return 0;
 }

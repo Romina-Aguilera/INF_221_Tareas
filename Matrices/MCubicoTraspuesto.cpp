@@ -111,17 +111,17 @@ int main() {
 
     vector<vector<int>> A;
     A = leer_y_llenar_M1();
-    imprimirMatriz(A);
+    //imprimirMatriz(A);
 
-    cout << "a" << endl;
+    //cout << "a" << endl;
 
     vector<vector<int>> B;
     B = leer_y_llenar_M2 ();
-    imprimirMatriz(B);
+    //imprimirMatriz(B);
 
     vector<vector<int>> MB = Transponer_Matriz(B);
     cout << "Matriz resultante traspuesta es:" << endl;
-    imprimirMatriz(MB);
+    //imprimirMatriz(MB);
 
     auto inicio = chrono::high_resolution_clock::now();
     vector<vector<int>> C =MultiplicarMatrices(A, MB);
@@ -129,9 +129,9 @@ int main() {
 
     auto total = chrono::duration_cast<chrono::microseconds>(final - inicio).count();
 
-    cout << "Matriz resultante C es:" << endl;
-    imprimirMatriz(C);
-
+    //cout << "Matriz resultante C es:" << endl;
+    //imprimirMatriz(C);
+    cout << "Se ha finalizado el algoritmo con traspuesta" << endl;
     cout << "microsegundos" <<total << endl;
 
     return 0;

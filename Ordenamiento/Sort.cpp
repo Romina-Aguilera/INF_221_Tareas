@@ -28,15 +28,16 @@ int main(){
     vector<int> vect;
     vect = LlenarVector(vect);
 
-    int tam_vect = vect.size();
+    //int tam_vect = vect.size();
     auto inicio = chrono::high_resolution_clock::now();
     sort(vect.begin(), vect.end());
     auto final = chrono::high_resolution_clock::now();
 
     auto total = chrono::duration_cast<chrono::microseconds>(final - inicio).count();
 
-    Imprimir_vector(vect, tam_vect);
+    //Imprimir_vector(vect, tam_vect);
 
+    cout << "Se ha resuelto Sort con exito!" <<endl;
     cout << "microsegundos" <<total << endl;
 
     return 0;

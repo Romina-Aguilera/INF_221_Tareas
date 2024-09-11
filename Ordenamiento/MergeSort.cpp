@@ -7,7 +7,7 @@
 using namespace std;
 
 vector<int> Llenar_Vector(vector<int> elementos){
-    ifstream MyFile("Desordenados.txt");
+    ifstream MyFile("SemiOrdenados.txt");
     int n;
     while (MyFile >> n){
         elementos.push_back(n);
@@ -74,11 +74,12 @@ int main(){
     auto inicio = chrono::high_resolution_clock::now();
     MergeSort(vect, 0, tam_vect - 1);
     auto final = chrono::high_resolution_clock::now();
-    Imprimir_vector(vect, tam_vect);
+    //Imprimir_vector(vect, tam_vect);
 
     auto total = chrono::duration_cast<chrono::microseconds>(final - inicio).count();
 
-    cout << "microsegundos" <<total << endl;
+    cout << "Se ha resuelto MergeSort con exito!" <<endl;
+    cout << "microsegundos " <<total << endl;
 
 
     return 0;
